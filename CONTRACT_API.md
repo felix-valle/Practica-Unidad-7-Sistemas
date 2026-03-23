@@ -1,16 +1,17 @@
-#Esta seccion documenta las funciones principales del contrato inteligente para que un desarollador pueda interactual con el token SPV sin necesidad de reprogramar el contrato
+Documentación de la Interfaz (API del Contrato)
 
-1º Consultas (No hace falta gas para hacerlas)
-balanceof("direccion del token") en mi caso Sopas_token: Devuelve la cantidad de SPV que posee una billetera
-totalSupply(): COnfirma el limite total del token 1.000.000 SPV
-name: Devuelve el nombre del token SPV
-symbol: Devuelve la abreviatura del token (SPV)
+Esta sección describe las funciones principales del estándar ERC-20 implementadas en Sopas_token.
 
-2º Operaciones (Si requiere gas)
+1. Funciones de Lectura
+No requieren el consumo de gas ni firma de transacción.
 
-transfer(de, a) Envia tokens directamente a otra direccion de sepolia
+name(): Devuelve el nombre completo del activo: Sopas_token.
+symbol(): Devuelve el ticker o abreviatura: "en mi caso SPV".
+totalSupply(): Devuelve la cantidad de tokens disponibles (1.000.000 SPV).
 
-approve: autoria a Uniswap a gestionar tus tokens. Es una de los pasos que yo realize ya que es indispensable para crear la pool
+2. Funciones de Escritura 
+Requieren el pago de gas en Sepolia ETH y firma mediante MetaMask.
+transfer("Desde, "hacia"): Desplaza una cantidad de tokens desde la billetera del emisor hacia la dirección de destino en la red Sepolia.
 
-allawance: Verifica cuantos tokens tiene permitido gastar un tercero
+approve : Autoriza a un tercero (como el contrato de Uniswap) a gestionar una cantidad de tus tokens. Es un paso obligatorio realizado para la creación de la Liquidity Pool.
 
