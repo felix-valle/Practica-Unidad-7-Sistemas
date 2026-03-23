@@ -2,6 +2,11 @@
 
 Este proyecto consiste en la creación, despliegue y puesta en mercado de una criptomoneda realizada por mi sobre la red de pruebas de Ethereum (Sepolia).
 
+##  Detalles tecnicos
+* **Estandar:** ERC-20 (Es una interfaz estandar para tokens fungibles
+* **Librerias:** Se necesita el uso de openzeppelin/contracts para garantizar la seguridad del contrato inteligente
+* **Red de pruebas:** Ethereum Sepolia Testnet
+
 ##  Requisitos previos
 * **MetaMask:** Instalado en el navegador.
 * **Red Sepolia:** Activada en la configuración de redes de prueba.
