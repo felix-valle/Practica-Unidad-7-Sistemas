@@ -1,19 +1,22 @@
-Documentación de la Interfaz (API del Contrato)
+# Documentación de la Interfaz (API del Contrato)
 
-Esta sección describe las funciones principales del estándar ERC-20 implementadas en Sopas_token.
+Este documento detalla las funciones principales del estándar ERC20 que están implementadas en Sopas_token (SPV). Al tratarse de un contrato inteligente, estas funciones actúan como la API pública que permite a otras aplicaciones, billeteras o plataformas interactuar con nuestra criptomoneda.
 
-1. Funciones de Lectura
-No requieren el consumo de gas ni firma de transacción.
+## 1. Funciones de Lectura
 
-name(): Devuelve el nombre completo del activo: Sopas_token.
-symbol(): Devuelve el ticker o abreviatura: "en mi caso SPV".
-totalSupply(): Devuelve la cantidad de tokens disponibles (1.000.000 SPV).
+Estas funciones sirven para consultar información del contrato de forma pública. Son totalmente gratuitas, no requieren firma de transacción ni consumen el gas de la red Sepolia.
 
-2. Funciones de Escritura
-   
-Requieren el pago de gas en Sepolia ETH y firma mediante MetaMask.
+* name(): Devuelve el nombre completo del activo, que está configurado como "Sopas_token".
+* symbol(): Devuelve el ticker o la abreviatura oficial de la moneda, que es "SPV".
+* totalSupply(): Devuelve la cantidad total de tokens que existen en circulación, fijada en un límite de 1.000.000 SPV.
+* balanceOf(account): Permite consultar el saldo exacto de tokens SPV que tiene una dirección de billetera específica en la red.
 
-transfer("Desde, "hacia"): Desplaza una cantidad de tokens desde la billetera del emisor hacia la dirección de destino en la red Sepolia.
+---
 
-approve : Autoriza a un tercero (como el contrato de Uniswap) a gestionar una cantidad de tus tokens. Es un paso obligatorio realizado para la creación de la Liquidity Pool.
+## 2. Funciones de Escritura
 
+Estas funciones modifican el estado de la blockchain, por lo que requieren de forma obligatoria que el usuario conecte su billetera MetaMask, firme la transacción de forma digital y pague la comisión de red (gas) utilizando Sepolia ETH.
+
+* transfer(to, amount): Mueve una cantidad determinada de tokens desde la billetera de la persona que ejecuta la función hacia la dirección de destino especificada en el parámetro "to". Si el emisor no tiene tokens suficientes, la blockchain cancela la transacción.
+
+* approve(spender, amount): Autoriza a un tercero (en este proyecto, el contrato inteligente de Uniswap) a gestionar una cantidad límite de tus tokens en tu nombre. Este es el paso previo y obligatorio que se ejecutó de forma automática para permitir la creación y provisión de fondos en la Liquidity Pool.
