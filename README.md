@@ -38,4 +38,4 @@ Aquí tienes la información fija y real que compone mi criptomoneda desplegada:
 ##  Documentación Adicional
 
 * [ Ver la Guía de Arquitectura del Proyecto](./ARCHITECTURE.md) 
-* [📑 Ver la Documentación de la API del Contrato](./API.md)
+* [ Ver la Documentación de la API del Contrato](./CONTRACT_API.md)
